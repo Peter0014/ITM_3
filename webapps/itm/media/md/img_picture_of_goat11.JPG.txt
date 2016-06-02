@@ -1,5 +1,5 @@
 type: image
-file: C:\Users\peter\Desktop\Schule\SEM4-2\ITM\Abgabe_3\itm_skeleton_a3_SS16\assignment3\webapps\itm\media\img\picture_of_goat11.JPG
+file: C:\Users\Nico\Documents\GitHub\ITM_3\webapps\itm\media\img\picture_of_goat11.JPG
 name: picture_of_goat11.JPG
 size: 251126 bytes (251kB)
 tags: image,JPG,

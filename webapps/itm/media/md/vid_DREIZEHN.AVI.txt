@@ -1,5 +1,5 @@
 type: video
-file: C:\Users\peter\Desktop\Schule\SEM4-2\ITM\Abgabe_3\itm_skeleton_a3_SS16\assignment3\webapps\itm\media\video\DREIZEHN.AVI
+file: C:\Users\Nico\Documents\GitHub\ITM_3\webapps\itm\media\video\DREIZEHN.AVI
 name: DREIZEHN.AVI
 size: 2655744 bytes (2655kB)
 tags: video,

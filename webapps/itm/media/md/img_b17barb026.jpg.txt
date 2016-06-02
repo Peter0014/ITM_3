@@ -1,5 +1,5 @@
 type: image
-file: C:\Users\peter\Desktop\Schule\SEM4-2\ITM\Abgabe_3\itm_skeleton_a3_SS16\assignment3\webapps\itm\media\img\b17barb026.jpg
+file: C:\Users\Nico\Documents\GitHub\ITM_3\webapps\itm\media\img\b17barb026.jpg
 name: b17barb026.jpg
 size: 261328 bytes (261kB)
 tags: image,jpg,
