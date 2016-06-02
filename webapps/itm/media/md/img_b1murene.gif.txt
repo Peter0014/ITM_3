@@ -1,0 +1,12 @@
+type: image
+file: C:\Users\peter\Desktop\Schule\SEM4-2\ITM\Abgabe_3\itm_skeleton_a3_SS16\assignment3\webapps\itm\media\img\b1murene.gif
+name: b1murene.gif
+size: 95967 bytes (95kB)
+tags: image,gif,
+width: 500
+height: 333
+numOfImgComp: 3
+numOfImgColComp: 3
+transparency: 1
+pixelSize: 8
+oriantation: 5

@@ -1,0 +1,12 @@
+type: image
+file: C:\Users\peter\Desktop\Schule\SEM4-2\ITM\Abgabe_3\itm_skeleton_a3_SS16\assignment3\webapps\itm\media\img\b17maartent1427.gif
+name: b17maartent1427.gif
+size: 5622 bytes (5kB)
+tags: image,gif,
+width: 50
+height: 38
+numOfImgComp: 3
+numOfImgColComp: 3
+transparency: 1
+pixelSize: 8
+oriantation: 5

@@ -1,0 +1,12 @@
+type: image
+file: C:\Users\peter\Desktop\Schule\SEM4-2\ITM\Abgabe_3\itm_skeleton_a3_SS16\assignment3\webapps\itm\media\img\b3_seaanimals014.jpg
+name: b3_seaanimals014.jpg
+size: 387587 bytes (387kB)
+tags: image,jpg,
+width: 1600
+height: 1200
+numOfImgComp: 3
+numOfImgColComp: 3
+transparency: 1
+pixelSize: 24
+oriantation: 5

@@ -1,0 +1,16 @@
+type: video
+file: C:\Users\peter\Desktop\Schule\SEM4-2\ITM\Abgabe_3\itm_skeleton_a3_SS16\assignment3\webapps\itm\media\video\DREIZEHN.AVI
+name: DREIZEHN.AVI
+size: 2655744 bytes (2655kB)
+tags: video,
+audioBitRate: 176400
+audioChannels: 1
+audioCodec: CODEC_TYPE_AUDIO
+audioCodecID: CODEC_ID_PCM_U8
+audioSampleRate: 22050
+videoCodec: CODEC_TYPE_AUDIO
+videoCodecID: CODEC_ID_PCM_U8
+videoFrameRate: 14.999925000374999
+videoHeight: 120
+videoLength: 42
+videoWidth: 160

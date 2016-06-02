@@ -1,0 +1,16 @@
+type: video
+file: C:\Users\peter\Desktop\Schule\SEM4-2\ITM\Abgabe_3\itm_skeleton_a3_SS16\assignment3\webapps\itm\media\video\panda.avi
+name: panda.avi
+size: 2473984 bytes (2473kB)
+tags: video,
+audioBitRate: 192000
+audioChannels: 2
+audioCodec: CODEC_TYPE_AUDIO
+audioCodecID: CODEC_ID_MP3
+audioSampleRate: 44100
+videoCodec: CODEC_TYPE_AUDIO
+videoCodecID: CODEC_ID_MP3
+videoFrameRate: 25.0
+videoHeight: 288
+videoLength: 4
+videoWidth: 352

@@ -1,0 +1,12 @@
+type: image
+file: C:\Users\peter\Desktop\Schule\SEM4-2\ITM\Abgabe_3\itm_skeleton_a3_SS16\assignment3\webapps\itm\media\img\the_real_firefox_dithered.bmp
+name: the_real_firefox_dithered.bmp
+size: 88778 bytes (88kB)
+tags: image,bmp,
+width: 513
+height: 341
+numOfImgComp: 3
+numOfImgColComp: 3
+transparency: 1
+pixelSize: 4
+oriantation: 5

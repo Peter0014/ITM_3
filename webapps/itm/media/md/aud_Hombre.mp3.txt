@@ -1,0 +1,18 @@
+type: audio
+file: C:\Users\peter\Desktop\Schule\SEM4-2\ITM\Abgabe_3\itm_skeleton_a3_SS16\assignment3\webapps\itm\media\audio\Hombre.mp3
+name: Hombre.mp3
+size: 4844816 bytes (4844kB)
+tags: audio,
+album: Arular
+author: M.I.A.
+bitrate: 160000
+channels: 2
+comment: TunNORM
+composer: Maya Arulpragasam, Anthony Whiting
+date: 2005
+duration: 0.0
+encoding: MPEG1L3
+frequency: 44100.0
+genre: Hip Hop/Rap
+title: Hombre
+track: 9/13

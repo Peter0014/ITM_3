@@ -1,0 +1,12 @@
+type: image
+file: C:\Users\peter\Desktop\Schule\SEM4-2\ITM\Abgabe_3\itm_skeleton_a3_SS16\assignment3\webapps\itm\media\img\picture_of_coati_dithered.png
+name: picture_of_coati_dithered.png
+size: 144786 bytes (144kB)
+tags: image,png,
+width: 1023
+height: 558
+numOfImgComp: 4
+numOfImgColComp: 3
+transparency: 2
+pixelSize: 4
+oriantation: 5
