@@ -18,14 +18,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ITM 3 2016</title>
     
-	<script type="text/javascript" src="js/raphael.js"></script>
 	<script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+	<script type="text/javascript" src="js/raphael.js"></script>
 	<script type="text/javascript" src="js/dracula_graffle.js"></script>
     <script type="text/javascript" src="js/dracula_graph.js"></script>
     
+    <!-- Font Awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    
     <!-- Bootstrap -->
-	<script type="text/javascript" src="./js/bootstrap.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet">
+	<script type="text/javascript" src="./js/bootstrap.js"></script>
     
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,12 +39,18 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <h1 class="h1">Welcome to the ITM media library</h1>
     </div>
-    <h2 class="h2 text-right"><a href="graph.jsp">graph</a></h2>
+    <h2 class="h2 text-right">
+   	  <a href="graph.jsp">
+      <button type="button" class="btn btn-default navbar-btn">
+      <i class="fa fa-share-alt" aria-hidden="true"></i> Graph
+          </button>
+      </a>
+    </h2>
   </div>
 </nav>
 
@@ -49,6 +58,7 @@
 
          
 <div class="container">
+	<div class="row">
         <%
             // get the file paths - this is NOT good style (resources should be loaded via inputstreams...)
             // we use it here for the sake of simplicity.
@@ -66,18 +76,46 @@
             ArrayList<AbstractMedia> media = MediaFactory.getMedia();
             
             int c=0; // counter for rowbreak after 3 thumbnails.
+            boolean firstAudio = true, firstVideo = true, firstImage = true;
             // iterate over all available media objects
             for ( AbstractMedia medium : media ) {
+            	
+            	if (firstImage) {
+            		firstImage = false;
+        			%>
+	        			</div>
+	        			<h1 class="h1 text-center">Images</h1>
+        			<%
+            	} else if ( medium instanceof AudioMedia ) {
+            		if (firstAudio) {
+            			c = 0;
+            			firstAudio = false;
+            			%>
+            			</div>
+            			<h1 class="h1 text-center">Audio</h1>
+            			<%
+            		}
+            	} else if ( medium instanceof VideoMedia ) {
+            		if (firstVideo) {
+            			firstVideo = false;
+            			c = 0;
+            			%>
+            			</div>
+            			<h1 class="h1 text-center">Video</h1>
+            			<%
+            		}
+            	}
 				
 				if ( c % 3 == 0 ) {
                 %>
-                    <div class="row">
+                    <div class="col-xs-12">
                 <%
                 }
 				
                 c++;
                 %>
-                    <div class="col-md-4 text-center">
+         			
+                    <div class="col-xs-4 text-center">
                 <%
             
                 // handle images
@@ -91,12 +129,13 @@
                     // display image thumbnail and metadata
                     ImageMedia img = (ImageMedia) medium;
                     %>
-                    <div class="img-thumbnail well" style="width:230px; height:180px;">
+                    <div class="img-thumbnail well" style="width:245px; height:195px;">
                         <a href="media/img/<%= img.getInstance().getName()%>">
-                        <img style="width:200px; height:150px;" class="img-rounded" onmouseover="getHist('<%= img.getInstance().getName() %>', this)" name="<%= img.getInstance().getName() %>" onmouseout="getPic('<%= img.getInstance().getName() %>', this)" id ="image" src="media/md/<%= img.getInstance().getName() %>.thumb.png" border="0"/>
+                        <img style="width:200px; height:150px;" class="img-rounded" onmouseover="getHist('<%= img.getInstance().getName() %>', this)" name="<%= img.getInstance().getName() %>" onmouseout="getPic('<%= img.getInstance().getName() %>', this)" src="media/md/<%= img.getInstance().getName() %>.thumb.png" border="0"/>
                         </a>
                     </div>
-                    <div class="text-center well">
+                    <button type="button" onclick="$('#<%= img.getName().replaceAll("\\[|\\]|\\.", "_") %>').toggle();" class="btn btn-default" data-toggle="collapse"><i class="fa fa-info-circle" aria-hidden="true"></i> Show Metadata</button>
+                    <div id="<%= img.getName().replaceAll("\\[|\\]|\\.", "_") %>" class="text-center well collapse">
                         Name: <%= img.getName() %><br/>
                         Dimensions: <%= img.getWidth() %>x<%= img.getHeight() %>px<br/>
                         Size: <%= img.getSize() %> bytes<br/>
@@ -106,7 +145,7 @@
 						Transparency: <%= img.getTransparency() %> <br/>
 						Oriantation: <%= img.getOriantation() %> <br/>
                         Tags: <% for ( String t : img.getTags() ) { %><a href="tags.jsp?tag=<%= t %>"><%= t %></a> <% } %><br/>
-  </div>
+ 					</div>
                     <%  
                     } else 
                 if ( medium instanceof AudioMedia ) {
@@ -123,8 +162,8 @@
                             Download <%= audio.getInstance().getName()%>
                         </a>
                     </div>
-                    <div>
-                    <div class="text-center well">
+                    <button onclick="$('#<%= audio.getName().replaceAll("\\[|\\]|\\.", "_") %>').toggle();" class="btn btn-default" data-toggle="collapse"><i class="fa fa-info-circle" aria-hidden="true"></i> Show Metadata</button>
+                    <div id="<%= audio.getName().replaceAll("\\[|\\]|\\.", "_") %>" class="text-center well collapse">
                         Name: <%= audio.getName() %><br/>
 						title: <%= audio.getTitle() %> <br/>
                         Duration: <%= audio.getDuration() %><br/>
@@ -141,7 +180,6 @@
 						encoding: <%= audio.getEncoding() %> <br/>
 						frequency: <%= audio.getFrequency() %> <br/>
                         Tags: <% for ( String t : audio.getTags() ) { %><a href="tags.jsp?tag=<%= t %>"><%= t %></a> <% } %><br/>
-                    </div>
                     </div>
                     <%  
                     } else
@@ -160,7 +198,8 @@
 
                         </a>
                     </div>
-                    <div class="text-center well">
+                    <button onclick="$('#<%= video.getName().replaceAll("\\[|\\]|\\.", "_") %>').toggle();" class="btn btn-default" data-toggle="collapse"><i class="fa fa-info-circle" aria-hidden="true"></i> Show Metadata</button>
+                    <div id="<%= video.getName().replaceAll("\\[|\\]|\\.", "_") %>" class="text-center well collapse">
                         Name: <a href="media/video/<%= video.getInstance().getName()%>"><%= video.getName() %></a><br/>
                         Size: <%= video.getSize() %> bytes <br/>
                         Dimensions: <%= video.getVideoWidth() %>x<%= video.getVideoHeight() %>px<br/>
@@ -180,7 +219,7 @@
                         }
 
                 %>
-</div>
+				</div>
                 <%
 				
 				if ( c % 3 == 0 ) {

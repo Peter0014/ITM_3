@@ -11,6 +11,7 @@ html {
 }
 body {
   margin: 0;
+  padding-top: 100px;
 }
 article,
 aside,
@@ -1407,6 +1408,15 @@ a.bg-warning:focus {
 a.bg-danger:hover,
 a.bg-danger:focus {
   background-color: #e4b9b9;
+}
+.bg-audio {
+  background-color: #42a5f5;
+}
+.bg-image {
+  background-color: #ffa726;
+}
+.bg-video {
+  background-color: #ab47bc;
 }
 .page-header {
   padding-bottom: 9px;
@@ -3006,7 +3016,7 @@ select[multiple].input-lg {
 .btn {
   display: inline-block;
   padding: 6px 12px;
-  margin-bottom: 0;
+  margin-bottom: 30px;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.42857143;
