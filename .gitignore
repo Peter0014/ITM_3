@@ -74,3 +74,4 @@ WEB-INF/
 .project
 .classpath
 webapps/itm/media/md/*
+*.txt
