@@ -133,6 +133,10 @@ public class ImageMetadataGenerator
 
             // add a tag "image" to the media
             media.addTag("image");
+            ImageHistogramGenerator ihg = new ImageHistogramGenerator();
+            
+            for(String s : ihg.GetDominantColors(input, 5))
+            	media.addTag(s);
 
             // add a tag corresponding to the filename extension of the file to the media 
             media.addTag(input.getName().substring(input.getName().indexOf('.')+1,input.getName().length()));
