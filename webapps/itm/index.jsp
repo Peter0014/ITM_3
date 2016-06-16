@@ -20,17 +20,13 @@
     
 	<script type="text/javascript" src="js/raphael.js"></script>
 	<script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
-    <script type="text/javascript" src="js/dracula_graffle.js"></script>
+	<script type="text/javascript" src="js/dracula_graffle.js"></script>
     <script type="text/javascript" src="js/dracula_graph.js"></script>
     
-    <!-- Bootstrap Player - see https://github.com/iainhouston/bootstrap3_player -->
-	<link href="css/bootstrap3_player.css" rel="stylesheet">
-    <script type="text/javascript" src="./js/bootstrap3_player.js"></script>
-    
     <!-- Bootstrap -->
-	<link href="css/bootstrap.css" rel="stylesheet">
 	<script type="text/javascript" src="./js/bootstrap.js"></script>
-
+    <link href="css/bootstrap.css" rel="stylesheet">
+    
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -40,8 +36,17 @@
 </head>
 <body>
 
-<h1>Welcome to the ITM media library</h1>
-        <a href="graph.jsp">graph</a>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <h1 class="h1">Welcome to the ITM media library</h1>
+    </div>
+    <h2 class="h2 text-right"><a href="graph.jsp">graph</a></h2>
+  </div>
+</nav>
+
+
+
          
 <div class="container">
         <%
@@ -88,7 +93,7 @@
                     %>
                     <div class="img-thumbnail well" style="width:230px; height:180px;">
                         <a href="media/img/<%= img.getInstance().getName()%>">
-                        <img class="img-rounded" src="media/md/<%= img.getInstance().getName() %>.thumb.png" border="0"/>
+                        <img style="width:200px; height:150px;" class="img-rounded" onmouseover="getHist('<%= img.getInstance().getName() %>', this)" name="<%= img.getInstance().getName() %>" onmouseout="getPic('<%= img.getInstance().getName() %>', this)" id ="image" src="media/md/<%= img.getInstance().getName() %>.thumb.png" border="0"/>
                         </a>
                     </div>
                     <div class="text-center well">
@@ -187,7 +192,20 @@
                 } // for 
                 
         %>
-        </div>
-        
+</div>
 </body>
+<script>
+
+    function getPic(fileName, img) {
+        var rendImg = document.getElementsByName(fileName)[0];
+        img.src="media/md/"+fileName+".thumb.png";
+    }
+    
+        function getHist(fileName, img) {
+            var rendImg = document.getElementsByName(fileName)[0];
+            img.src="media/md/"+fileName+".hist.png";
+            img.style.height = rendImg.clientHeight;
+            img.style.width = rendImg.clientWidth;
+        }
+</script>
 </html>
