@@ -68,10 +68,11 @@ $RECYCLE.BIN/
 # Extra
 .settings/
 tomcat/
-tools/*
+tools/**
 META-INF/
 WEB-INF/
 .project
 .classpath
-webapps/itm/media/md/*
-*.txt
+/webapps/itm/media/md/*
+/webapps/itm/media/md/
+/webapps/itm/media/md

@@ -39,19 +39,31 @@
             // ***************************************************************
             
         %>
-        <div id="canvas" style="height: 1024px; width: 1024px; margin: auto; display: block; text-align:center;"></div>
+        <div id="canvas" style="height: 1024px; width: 1024px; margin: auto; display: block; text-align:center;">
         <script>
             var g = new Graph();
             
-            // example
-            g.addNode("Tags", "", "/itm/tags.jsp");
-            g.addEdge("Tags", "Image", "/itm/anImage.png")
+            
+            g.addNode("Tags", "", "./tags.jsp");
             
         <%
             for ( AbstractMedia medium : media ) {
+            	for ( String t : medium.getTags() ) {
+            		String path = "./media/";
+            		if ( medium instanceof ImageMedia )
+            			path += "img/";
+            		else if ( medium instanceof AudioMedia )
+            			path += "audio/";
+            		else if ( medium instanceof VideoMedia )
+            			path += "video/";
+            		path += medium.getName();
         %>
-                g.addEdge(<% /* Source as string */  %>, <% /* Target as string */ %>, <% /* URL as string */ %>);
+        		g.addNode("<%= t.toLowerCase() %>", "", "./tags.jsp?tag=<%= t %>");
+        		g.addEdge("Tags", "<%= t.toLowerCase() %>", "./tags.jsp?tag=<%= t %>");
+        		g.addNode("<%= medium.getName() %>", "", "<%= path %>")
+                g.addEdge("<%= t.toLowerCase() %>", "<%= medium.getName() %>", "<%= path %>");
         <%
+            	}
             }
         %>
             var layouter = new Graph.Layout.Spring(g);
@@ -60,5 +72,6 @@
             var renderer = new Graph.Renderer.Raphael('canvas', g, 1024, 1024);
             renderer.draw();
         </script> 
+        </div>
     </body>
 </html>
