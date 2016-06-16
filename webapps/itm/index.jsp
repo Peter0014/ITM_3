@@ -25,7 +25,7 @@
         <%
             // get the file paths - this is NOT good style (resources should be loaded via inputstreams...)
             // we use it here for the sake of simplicity.
-            String basePath = getServletConfig().getServletContext().getRealPath( "media"  );
+            String basePath = getServletConfig().getServletContext().getRealPath( "media" );
             if ( basePath == null )
                 throw new NullPointerException( "could not determine base path of media directory! please set manually in JSP file!" );
             File base = new File( basePath );
@@ -43,7 +43,7 @@
             for ( AbstractMedia medium : media ) {
                 c++;
                 %>
-                    <div style="width:300px;height:300px;padding:10px;float:left;">
+                    <div style="width:300px;height:550px;padding:10px;float:left;">
                 <%
             
                 // handle images
@@ -65,6 +65,12 @@
                     <div>
                         Name: <%= img.getName() %><br/>
                         Dimensions: <%= img.getWidth() %>x<%= img.getHeight() %>px<br/>
+                        Size: <%= img.getSize() %> bytes<br/>
+                        Pixelsize: <%= img.getPixelSize() %> <br/>
+                        Number of Image Components: <%= img.getNumOfImgComp() %> <br/>
+						Number of Image Color Components: <%= img.getNumOfImgColComp() %> <br/>
+						Transparency: <%= img.getTransparency() %> <br/>
+						Oriantation: <%= img.getOriantation() %> <br/>
                         Tags: <% for ( String t : img.getTags() ) { %><a href="tags.jsp?tag=<%= t %>"><%= t %></a> <% } %><br/>
                     </div>
                     <%  
@@ -84,6 +90,19 @@
                     <div>
                         Name: <%= audio.getName() %><br/>
                         Duration: <%= audio.getDuration() %><br/>
+						Size: <%= audio.getSize() %> bytes <br/>
+						album: <%= audio.getAlbum() %> <br/>
+						author: <%= audio.getAuthor() %> <br/>
+						bitrate: <%= audio.getBitrate() %> <br/>
+						channels: <%= audio.getChannels() %> <br/>
+						comment: <%= audio.getComment() %> <br/>
+						composer: <%= audio.getComposer() %> <br/>
+						date: <%= audio.getDate() %> <br/>
+						encoding: <%= audio.getEncoding() %> <br/>
+						frequency: <%= audio.getFrequency() %> <br/>
+						genre: <%= audio.getGenre() %> <br/>
+						title: <%= audio.getTitle() %> <br/>
+						track: <%= audio.getTrack() %> <br/>
                         Tags: <% for ( String t : audio.getTags() ) { %><a href="tags.jsp?tag=<%= t %>"><%= t %></a> <% } %><br/>
                     </div>
                     <%  
@@ -105,6 +124,17 @@
                     </div>
                     <div>
                         Name: <a href="media/video/<%= video.getInstance().getName()%>"><%= video.getName() %></a><br/>
+                        Size: <%= video.getSize() %> bytes <br/>
+                        Dimensions: <%= video.getVideoWidth() %>x<%= video.getVideoHeight() %>px<br/>
+						Video Length: <%= video.getVideoLength() %> sec <br/>
+						Video Framerate: <%= (int) (video.getVideoFrameRate() + 0.5) %> <br/>
+                        Audio Bitrate: <%= video.getAudioBitRate() %> <br/>
+						Audio Channels: <%= video.getAudioChannels() %> <br/>
+						Audio Codec: <%= video.getAudioCodec() %> <br/>
+						Audio CodecID: <%= video.getAudioCodecID() %> <br/>
+						Audio Samplerate: <%= video.getAudioSampleRate() %> <br/>
+						Video Codec: <%= video.getVideoCodec() %> <br/>
+						Video CodecID: <%= video.getVideoCodecID() %> <br/>
                         Tags: <% for ( String t : video.getTags() ) { %><a href="tags.jsp?tag=<%= t %>"><%= t %></a> <% } %><br/>
                     </div>
                     <%  
