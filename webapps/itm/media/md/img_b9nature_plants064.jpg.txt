@@ -1,5 +1,5 @@
 type: image
-file: C:\Users\peter\Desktop\Schule\SEM4-2\ITM\Abgabe_3\itm_skeleton_a3_SS16\assignment3\webapps\itm\media\img\b9nature_plants064.jpg
+file: C:\Users\Nico\Documents\GitHub\ITM_3\webapps\itm\media\img\b9nature_plants064.jpg
 name: b9nature_plants064.jpg
 size: 284756 bytes (284kB)
 tags: image,jpg,

@@ -1,5 +1,5 @@
 type: video
-file: C:\Users\peter\Desktop\Schule\SEM4-2\ITM\Abgabe_3\itm_skeleton_a3_SS16\assignment3\webapps\itm\media\video\space.flv
+file: C:\Users\Nico\Documents\GitHub\ITM_3\webapps\itm\media\video\space.flv
 name: space.flv
 size: 362803 bytes (362kB)
 tags: video,
