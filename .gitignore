@@ -68,4 +68,8 @@ $RECYCLE.BIN/
 # Extra
 .settings/
 tomcat/
+tools/
+META-INF/
 WEB-INF/
+.project
+.classpath
