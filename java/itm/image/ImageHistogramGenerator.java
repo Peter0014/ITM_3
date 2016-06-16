@@ -160,7 +160,7 @@ public class ImageHistogramGenerator
         }
     }
 
-	public ArrayList<String> GetDominantColors( File input, int dominantColorOffsetInPercent ) throws IOException, Exception, IllegalArgumentException
+	public ArrayList<String> GetDominantColors( File input, int dominantColorOffsetInPercent, int recognizeBlackWhiteOffset) throws IOException, Exception, IllegalArgumentException
     {
 		if ( ! input.exists() ) 
             throw new IOException( "Input file " + input + " was not found!" );
@@ -177,9 +177,6 @@ public class ImageHistogramGenerator
 	        // load the input image
 			BufferedImage img = ImageIO.read(input);
 			
-			// get the color model of the image and the amount of color components
-			ColorModel cm = img.getColorModel();
-
 			ArrayList<String> toRet = new ArrayList<>();
 			
 			int height = img.getHeight();
@@ -203,132 +200,147 @@ public class ImageHistogramGenerator
 						float percBlue = (float)((float)col.getBlue() / (float)totalColor) * 100f;
 						
 						boolean foundDominant = false;
+						boolean isBlackOrWhite = false;
 						
 						float twoColors = percRed+percGreen;
-						if(isFirstColGreaterThanSecond(percBlue, twoColors))
+						
+						if(percRed >= percGreen-recognizeBlackWhiteOffset && percRed <= percGreen+recognizeBlackWhiteOffset)
 						{
-							blue++;
-							foundDominant=true;
+							if(percRed >= percBlue-recognizeBlackWhiteOffset && percRed <= percBlue+recognizeBlackWhiteOffset)
+							{
+								isBlackOrWhite=true;
+							}
 						}
 						
-						twoColors = percRed+percBlue;
-						if(isFirstColGreaterThanSecond(percGreen, twoColors))
-						{
-							green++;
-							foundDominant=true;
-						}
-						
-						twoColors = percGreen+percBlue;
-						if(isFirstColGreaterThanSecond(percRed, twoColors))
-						{
-							red++;
-							foundDominant=true;
-						}
-						
-						//Gibt es bis jetzt noch keine dominante farbe, probier das gleiche nochmal, nur diesmal abzueglich dem mtgegebenen Offset
-						if(!foundDominant)
+						if(!isBlackOrWhite)
 						{
 							
-							twoColors = percRed+percGreen-dominantColorOffsetInPercent;
 							if(isFirstColGreaterThanSecond(percBlue, twoColors))
 							{
 								blue++;
 								foundDominant=true;
 							}
 							
-							twoColors = percRed+percBlue-dominantColorOffsetInPercent;
+							twoColors = percRed+percBlue;
 							if(isFirstColGreaterThanSecond(percGreen, twoColors))
 							{
 								green++;
 								foundDominant=true;
 							}
 							
-							twoColors = percGreen+percBlue-dominantColorOffsetInPercent;
+							twoColors = percGreen+percBlue;
 							if(isFirstColGreaterThanSecond(percRed, twoColors))
 							{
 								red++;
 								foundDominant=true;
 							}
 							
-							//Wurde noch immer keine Dominante Farbe gefunden, gibt es mehrere dominante farben
+							//Gibt es bis jetzt noch keine dominante farbe, probier das gleiche nochmal, nur diesmal abzueglich dem mtgegebenen Offset
 							if(!foundDominant)
 							{
-								if(percRed >= percGreen-dominantColorOffsetInPercent && percRed <= percGreen+dominantColorOffsetInPercent)
+								
+								twoColors = percRed+percGreen-dominantColorOffsetInPercent;
+								if(isFirstColGreaterThanSecond(percBlue, twoColors))
 								{
-									red++;
-									green++;
-									foundDominant=true;
-								}
-								if(percRed >= percBlue-dominantColorOffsetInPercent && percRed <= percBlue+dominantColorOffsetInPercent)
-								{
-									if(!foundDominant)
-										red++;
-									
 									blue++;
 									foundDominant=true;
 								}
 								
+								twoColors = percRed+percBlue-dominantColorOffsetInPercent;
+								if(isFirstColGreaterThanSecond(percGreen, twoColors))
+								{
+									green++;
+									foundDominant=true;
+								}
+								
+								twoColors = percGreen+percBlue-dominantColorOffsetInPercent;
+								if(isFirstColGreaterThanSecond(percRed, twoColors))
+								{
+									red++;
+									foundDominant=true;
+								}
+								
+								//Wurde noch immer keine Dominante Farbe gefunden, gibt es mehrere dominante farben
 								if(!foundDominant)
 								{
-									if(percGreen >= percRed-dominantColorOffsetInPercent && percGreen <= percRed+dominantColorOffsetInPercent)
+									if(percRed >= percGreen-dominantColorOffsetInPercent && percRed <= percGreen+dominantColorOffsetInPercent)
 									{
-										blue++;
 										red++;
+										green++;
 										foundDominant=true;
 									}
-									if(percGreen >= percBlue-dominantColorOffsetInPercent && percGreen <= percBlue+dominantColorOffsetInPercent)
+									if(percRed >= percBlue-dominantColorOffsetInPercent && percRed <= percBlue+dominantColorOffsetInPercent)
 									{
 										if(!foundDominant)
-											blue++;
+											red++;
 										
-										green++;
+										blue++;
 										foundDominant=true;
 									}
 									
 									if(!foundDominant)
 									{
-										if(percBlue >= percGreen-dominantColorOffsetInPercent && percBlue <= percGreen+dominantColorOffsetInPercent)
+										if(percGreen >= percRed-dominantColorOffsetInPercent && percGreen <= percRed+dominantColorOffsetInPercent)
 										{
 											blue++;
-											green++;
+											red++;
 											foundDominant=true;
 										}
-										if(percBlue >= percRed-dominantColorOffsetInPercent && percBlue <= percRed+dominantColorOffsetInPercent)
+										if(percGreen >= percBlue-dominantColorOffsetInPercent && percGreen <= percBlue+dominantColorOffsetInPercent)
 										{
 											if(!foundDominant)
 												blue++;
 											
-											red++;
+											green++;
 											foundDominant=true;
+										}
+										
+										if(!foundDominant)
+										{
+											if(percBlue >= percGreen-dominantColorOffsetInPercent && percBlue <= percGreen+dominantColorOffsetInPercent)
+											{
+												blue++;
+												green++;
+												foundDominant=true;
+											}
+											if(percBlue >= percRed-dominantColorOffsetInPercent && percBlue <= percRed+dominantColorOffsetInPercent)
+											{
+												if(!foundDominant)
+													blue++;
+												
+												red++;
+												foundDominant=true;
+											}
 										}
 									}
 								}
 							}
+	
+	
+							
+							if(!foundDominant)
+							{
+								if(percRed > percGreen && percRed > percBlue)
+								{
+									red++;
+									foundDominant=true;
+								}
+	
+								if(percBlue > percGreen && percBlue > percRed)
+								{
+									blue++;
+									foundDominant=true;
+								}
+	
+								if(percGreen > percBlue && percRed > percRed)
+								{
+									green++;
+									foundDominant=true;
+								}
+							}
+							
 						}
-						
 
-						
-						if(!foundDominant)
-						{
-							if(percRed > percGreen && percRed > percBlue)
-							{
-								red++;
-								foundDominant=true;
-							}
-
-							if(percBlue > percGreen && percBlue > percRed)
-							{
-								blue++;
-								foundDominant=true;
-							}
-
-							if(percGreen > percBlue && percRed > percRed)
-							{
-								green++;
-								foundDominant=true;
-							}
-						}
-						
 					}
 			}
 				

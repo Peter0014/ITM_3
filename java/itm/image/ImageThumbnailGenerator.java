@@ -161,9 +161,9 @@ public class ImageThumbnailGenerator
 	        Graphics2D g2D = (Graphics2D)copyImg.getGraphics();
 	
 	        if(img.getWidth() < 200)
-	            g2D.drawImage(img, 100 - img.getWidth()/2, 50-img.getHeight()/2, null);
+	 	        g2D.drawImage(img, 100 - img.getWidth()/2, 50-img.getHeight()/2, null);
 	        else
-	        	g2D.drawImage(img, 0, 0, null);
+	 	        g2D.drawImage(img, 0, 0, null);
 	        
 	        //Draw the watermark
 	        g2D.setFont(new Font("Arial", Font.BOLD, 30));
@@ -182,7 +182,7 @@ public class ImageThumbnailGenerator
 	        AffineTransform at = new AffineTransform();
 	
 	        if (img.getWidth() < img.getHeight())
-	        	at.rotate(90 * Math.PI / 180.0, img.getWidth() / 2.0, img.getHeight() / 2.0);
+	        	at.rotate(90 * Math.PI / 180.0, img.getHeight() / 2.0, img.getHeight() / 2.0);
 	
 	        //Apply the rotation before scaling down
 	        BufferedImageOp filter;
