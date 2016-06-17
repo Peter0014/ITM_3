@@ -64,13 +64,10 @@
 	      <a class="btn-default btn-sm" href="index.jsp"  style=" float: left; margin-top: 1.25%; margin-left: 1%;">
 				      	<i class="fa fa-chevron-left" aria-hidden="true"></i> Back
 	      </a>
-	      <h3 style="text-align:center; overflow:hidden; padding: 20px; margin: 0px; padding-left: 15%;"> 
+	      <h3 style="text-align:center; overflow:hidden; padding: 20px; margin: 0px; padding-left: 8%;"> 
 		   		Media that is tagged with "<%= tag %>"
 		      <a class="btn-default btn-sm" href="index.jsp"  style=" float: right; margin-right: 1%;">
-			      	<i class="fa fa-tags" aria-hidden="true"></i> Home
-		      </a>
-		      <a class="btn-default btn-sm" href="#"  style=" float: right; margin-right: 1%;">
-			      	<i class="fa fa-users" aria-hidden="true"></i> Team
+			      	<i class="fa fa-home" aria-hidden="true"></i> Home
 		      </a>
 		      <a class="btn-default btn-sm" href="graph.jsp"  style=" float: right; margin-right: 1%;">
 			      	<i class="fa fa-share-alt" aria-hidden="true"></i> Graph

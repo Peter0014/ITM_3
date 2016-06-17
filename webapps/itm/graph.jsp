@@ -35,16 +35,10 @@
 	      <a class="btn-default btn-sm" href="index.jsp"  style=" float: left; margin-top: 1.25%; margin-left: 1%;">
 				      	<i class="fa fa-chevron-left" aria-hidden="true"></i> Back
 	      </a>
-	      <h3 style="text-align:center; overflow:hidden; padding: 20px; margin: 0px; padding-left: 15%;"> 
-		      Welcome to the ITM Graph (Made With Graph Dracula)
-			      <a class="btn-default btn-sm" href="#"  style=" float: right; margin-right: 1%;">
-				      	<i class="fa fa-tags" aria-hidden="true"></i> Tags
-			      </a>
-			      <a class="btn-default btn-sm" href="#"  style=" float: right; margin-right: 1%;">
-				      	<i class="fa fa-users" aria-hidden="true"></i> Team
-			      </a>
+	      <h3 style="text-align:center; overflow:hidden; padding: 20px; margin: 0px; padding-left: 3%;"> 
+		      Welcome to the ITM Graph
 			      <a class="btn-default btn-sm" href="index.jsp"  style=" float: right; margin-right: 1%;">
-				      	<i class="fa fa-share-alt" aria-hidden="true"></i> Home
+				      	<i class="fa fa-home" aria-hidden="true"></i> Home
 			      </a>
 	      </h3> 
   </div>

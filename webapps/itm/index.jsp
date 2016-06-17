@@ -36,15 +36,9 @@
   <div  style="background-image: url('img/itm_logo_bg_1.png'); background-repeat:repeat; background-position: center; background-size:contain;">
 	      
 
-	      <h3 style="text-align:center; overflow:hidden; padding: 20px; margin: 0px; padding-left: 18%;"> 
+	      <h3 style="text-align:center; overflow:hidden; padding: 20px; margin: 0px; padding-left: 8%;"> 
 		      Welcome to the ITM media library
-		
-		       <a class="btn-default btn-sm" href="#"  style=" float: right; margin-right: 1%;">
-			      	<i class="fa fa-tags" aria-hidden="true"></i> Tags
-		      </a>
-		      <a class="btn-default btn-sm" href="#"  style=" float: right; margin-right: 1%;">
-			      	<i class="fa fa-users" aria-hidden="true"></i> Team
-		      </a>
+
 		      <a class="btn-default btn-sm" href="graph.jsp"  style=" float: right; margin-right: 1%;">
 			      	<i class="fa fa-share-alt" aria-hidden="true"></i> Graph
 		      </a>
