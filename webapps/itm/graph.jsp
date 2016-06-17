@@ -10,14 +10,39 @@
  (c) University of Vienna 2009-2016
  *******************************************************************************/
 -->
-<html>
-    <head>
-        <script type="text/javascript" src="js/raphael.js"></script>
-        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-        <script type="text/javascript" src="js/dracula_graffle.js"></script>
-        <script type="text/javascript" src="js/dracula_graph.js"></script>
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ITM 3 2016 - Graph</title>
+    
+	<script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+	<script type="text/javascript" src="js/raphael.js"></script>
+	<script type="text/javascript" src="js/dracula_graffle.js"></script>
+    <script type="text/javascript" src="js/dracula_graph.js"></script>
+    
+    <!-- Font Awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+	<script type="text/javascript" src="./js/bootstrap.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <h1 class="h1">Welcome to the ITM Graph</h1>
+    </div>
+    <h2 class="h2 text-right">
+   	  <a href="index.jsp">
+		<button type="button" class="btn btn-default navbar-btn">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i> Back
+		</button>
+	  </a>
+    </h2>
+  </div>
+</nav>
         <%
             // get the file paths - this is NOT good style (resources should be loaded via inputstreams...)
             // we use it here for the sake of simplicity.
