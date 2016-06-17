@@ -167,10 +167,6 @@
                             c = 0;
                             firstAudio = false;
                         %>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
                         <div class="bg-audio">
                         <div class="container">
                             <div class="row">
@@ -228,10 +224,6 @@
                             firstVideo = false;
                             c = 0;
                         %>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
                         <div class="bg-video">
                         <div class="container">
                             <div class="row">
@@ -280,10 +272,12 @@
                         <%  
                 } else { }
 
+                if (matchedTag) {
                 %>
                     </div>
                 <%
-                if ( c % 3 == 0 ) {
+                }
+                if ( c % 3 == 0 && matchedTag) {
                     %>
                         </div>
                     <%
@@ -291,6 +285,8 @@
             } // for 
             
         	%>
+        	</div>
+        	</div>
         	</div>
     	</div>
     </body>
