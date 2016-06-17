@@ -94,9 +94,11 @@
             			alreadyAddedMedia.add(medium.getName());
 		        %>
 		        		g.addNode("<%= medium.getName() %>", "", "<%= path %>")
-		                g.addEdge("<%= t.toLowerCase() %>", "<%= medium.getName() %>", "<%= path %>");
 		        <%
             		}
+            	%>
+                	g.addEdge("<%= t.toLowerCase() %>", "<%= medium.getName() %>");
+            	<%
             	}
             }
         %>

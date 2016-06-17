@@ -12,6 +12,8 @@ html {
 body {
   margin: 0;
   padding-top: 70px;
+  background-image: url(../img/concrete_seamless.png);
+  background-repeat: repeat;
 }
 article,
 aside,
