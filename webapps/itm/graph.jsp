@@ -47,6 +47,7 @@
             g.addNode("Tags", "", "./tags.jsp");
             
         <%
+        	ArrayList<String> alreadyAddedMedia = new ArrayList<>();
             for ( AbstractMedia medium : media ) {
             	for ( String t : medium.getTags() ) {
             		String path = "./media/";
@@ -57,12 +58,20 @@
             		else if ( medium instanceof VideoMedia )
             			path += "video/";
             		path += medium.getName();
-        %>
-        		g.addNode("<%= t.toLowerCase() %>", "", "./tags.jsp?tag=<%= t %>");
-        		g.addEdge("Tags", "<%= t.toLowerCase() %>", "./tags.jsp?tag=<%= t %>");
-        		g.addNode("<%= medium.getName() %>", "", "<%= path %>")
-                g.addEdge("<%= t.toLowerCase() %>", "<%= medium.getName() %>", "<%= path %>");
-        <%
+            		if (!alreadyAddedMedia.contains(t.toLowerCase())) {
+            			alreadyAddedMedia.add(t.toLowerCase());
+		        %>
+		        		g.addNode("<%= t.toLowerCase() %>", "", "./tags.jsp?tag=<%= t %>");
+		        		g.addEdge("Tags", "<%= t.toLowerCase() %>", "./tags.jsp?tag=<%= t %>");
+		        <%
+            		}
+            		if (!alreadyAddedMedia.contains(medium.getName())) {
+            			alreadyAddedMedia.add(medium.getName());
+		        %>
+		        		g.addNode("<%= medium.getName() %>", "", "<%= path %>")
+		                g.addEdge("<%= t.toLowerCase() %>", "<%= medium.getName() %>", "<%= path %>");
+		        <%
+            		}
             	}
             }
         %>

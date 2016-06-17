@@ -32,11 +32,18 @@
             
             tag = request.getParameter("tag");
             
-            if (tag == null || tag.equals(""))
-            	response.sendRedirect("index.jsp");
+            if (tag == null) {
+           	%>
+               	<jsp:forward page="index.jsp" />
+           	<%
+            }
+            else if (tag.equals("")) {
+           	%>
+               	<jsp:forward page="index.jsp" />
+           	<%
+            }
 
         %>
-
         <h1>Media that is tagged with <%= tag %></h1>
         <a href="index.jsp">back</a><br/>
 
