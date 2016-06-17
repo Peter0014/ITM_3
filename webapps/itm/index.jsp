@@ -33,17 +33,22 @@
 <body>
 
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <h1 class="h1">Welcome to the ITM media library</h1>
-    </div>
-    <h2 class="h2 text-right">
-   	  <a href="graph.jsp">
-      <button type="button" class="btn btn-default navbar-btn">
-      <i class="fa fa-share-alt" aria-hidden="true"></i> Graph
-          </button>
-      </a>
-    </h2>
+  <div  style="background-image: url('img/itm_logo_bg_1.png'); background-repeat:repeat; background-position: center; background-size:contain;">
+	      
+
+	      <h3 style="text-align:center; overflow:hidden; padding: 20px; margin: 0px; padding-left: 18%;"> 
+		      Welcome to the ITM media library
+		
+		       <a class="btn-default btn-sm" href="#"  style=" float: right; margin-right: 1%;">
+			      	<i class="fa fa-tags" aria-hidden="true"></i> Tags
+		      </a>
+		      <a class="btn-default btn-sm" href="#"  style=" float: right; margin-right: 1%;">
+			      	<i class="fa fa-users" aria-hidden="true"></i> Team
+		      </a>
+		      <a class="btn-default btn-sm" href="graph.jsp"  style=" float: right; margin-right: 1%;">
+			      	<i class="fa fa-share-alt" aria-hidden="true"></i> Graph
+		      </a>
+	      </h3> 
   </div>
 </nav>
 

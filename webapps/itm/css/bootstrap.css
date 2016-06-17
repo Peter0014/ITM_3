@@ -1412,14 +1412,14 @@ a.bg-danger:focus {
   background-color: #e4b9b9;
 }
 .bg-audio {
-  background-image: url(../img/cartographer.png);
+  background-image: url(../img/cartographer_1.png);
   color: #E0E0E0;
 }
 .bg-image {
-  background-image: url(../img/concrete_seamless.png);
+  background-image: url(../img/concrete_seamless_1.png);
 }
 .bg-video {
-  background-image: url(../img/tree_bark.png);
+  background-image: url(../img/tree_bark_1.png);
 }
 .page-header {
   padding-bottom: 9px;
